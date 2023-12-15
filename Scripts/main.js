@@ -1340,6 +1340,9 @@ var Mario = Hero.extend({
 	},
 	addCoin: function() {
 		this.setCoins(this.coins + 1);
+		$("#fade").modal({
+			fadeDuration: 100
+		  });
 	},
 	playFrame: function() {		
 		if(this.blinking) {
