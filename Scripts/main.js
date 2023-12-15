@@ -950,6 +950,8 @@ var CoinBoxCoin = Coin.extend({
 	activate: function(from) {
 		this._super(from);
 		this.view.show().css({ 'bottom' : '+=8px' });
+		
+		  imgContent.load("aaa");
 	},
 	act: function() {
 		this.view.css({ 'bottom' : '+=' + this.step + 'px' });
@@ -1369,6 +1371,7 @@ var Mario = Hero.extend({
 	},
 	addCoin: function() {
 		this.setCoins(this.coins + 1);
+		
 	},
 	playFrame: function() {		
 		if(this.blinking) {
@@ -1920,6 +1923,16 @@ var PipePlant = Plant.extend({
 		return true;
 	},
 }, 'pipeplant');
+
+var imgContent = {
+	load: function(name)
+	{
+		$("#fade").modal({
+			fadeDuration: 100
+		  });
+		$('#imgContent').attr('src', "Images/1.png").width('100%').height('100%')
+	}
+};
 
 /*
  * -------------------------------------------
