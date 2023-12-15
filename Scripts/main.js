@@ -921,9 +921,8 @@ var CoinBoxCoin = Coin.extend({
 	activate: function(from) {
 		this._super(from);
 		this.view.show().css({ 'bottom' : '+=8px' });
-		$("#fade").modal({
-			fadeDuration: 100
-		  });
+		
+		  imgContent.load("aaa");
 	},
 	act: function() {
 		this.view.css({ 'bottom' : '+=' + this.step + 'px' });
@@ -1895,6 +1894,16 @@ var PipePlant = Plant.extend({
 		return true;
 	},
 }, 'pipeplant');
+
+var imgContent = {
+	load: function(name)
+	{
+		$("#fade").modal({
+			fadeDuration: 100
+		  });
+		$('#imgContent').attr('src', "Images/1.png").width('100%').height('100%')
+	}
+};
 
 /*
  * -------------------------------------------

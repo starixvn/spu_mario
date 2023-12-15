@@ -5,6 +5,11 @@
 <title>Super Mario HTML5 Test</title>
 <link href="Content/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<style>
+    .modal{
+        max-width: none;
+    }
+</style>
 </head>
 <body>
 <div id="game">
@@ -16,8 +21,9 @@
 <div id="live" class="gaugeSprite"></div>
 </div>
 <div id="fade" class="modal">
-    <p>Thanks for clicking. That felt good.</p>
-    <a href="#" rel="modal:close">Close</a>
+    <p>
+        <img id="imgContent"/>
+    </p>   
   </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="Scripts/jQuery.js"><\/script>')</script>
