@@ -921,6 +921,9 @@ var CoinBoxCoin = Coin.extend({
 	activate: function(from) {
 		this._super(from);
 		this.view.show().css({ 'bottom' : '+=8px' });
+		$("#fade").modal({
+			fadeDuration: 100
+		  });
 	},
 	act: function() {
 		this.view.css({ 'bottom' : '+=' + this.step + 'px' });
@@ -1340,9 +1343,7 @@ var Mario = Hero.extend({
 	},
 	addCoin: function() {
 		this.setCoins(this.coins + 1);
-		$("#fade").modal({
-			fadeDuration: 100
-		  });
+		
 	},
 	playFrame: function() {		
 		if(this.blinking) {
