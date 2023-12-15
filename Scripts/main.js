@@ -1403,21 +1403,21 @@ var Mario = Hero.extend({
 		//this.setupFrames(9, 2, false);
 		//this.setImage(images.sprites, 81, 324);
 		//this.level.playMusic('die');
-		this._super();
+		//this._super();
 	},
 	hurt: function(from) {
-		if(this.deadly)
-			from.die();
-		else if(this.invulnerable)
-			return;
-		else if(this.state === size_states.small) {
-			this.die();
-		} else {
-			this.invulnerable = Math.floor(constants.invulnerable / constants.interval);
-			this.blink(Math.ceil(this.invulnerable / (2 * constants.blinkfactor)));
-			this.setState(size_states.small);
-			this.level.playSound('hurt');			
-		}
+		// if(this.deadly)
+		// 	from.die();
+		// else if(this.invulnerable)
+		// 	return;
+		// else if(this.state === size_states.small) {
+		// 	this.die();
+		// } else {
+		// 	this.invulnerable = Math.floor(constants.invulnerable / constants.interval);
+		// 	this.blink(Math.ceil(this.invulnerable / (2 * constants.blinkfactor)));
+		// 	this.setState(size_states.small);
+		// 	this.level.playSound('hurt');			
+		// }
 	},
 }, 'mario');
 
