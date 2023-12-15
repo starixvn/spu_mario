@@ -618,6 +618,35 @@ var BrownBlock = Ground.extend({
 	},
 }, 'brown_block');
 
+var Goal = Ground.extend({
+	init: function(x, y, level) {
+		var blocking = ground_blocking.all;
+		this._super(x, y, blocking, level);
+		this.setImage(images.peach, 50, 40);
+	},
+}, 'goal-bottom-left');
+var Goal = Ground.extend({
+	init: function(x, y, level) {
+		var blocking = ground_blocking.all;
+		this._super(x, y, blocking, level);
+		this.setImage(images.peach, 50, 0);
+	},
+}, 'goal-top-left');
+
+var Goal = Ground.extend({
+	init: function(x, y, level) {
+		var blocking = ground_blocking.all;
+		this._super(x, y, blocking, level);
+		this.setImage(images.objects, 225, 40);
+	},
+}, 'gate-bottom');
+var Goal = Ground.extend({
+	init: function(x, y, level) {
+		var blocking = ground_blocking.all;
+		this._super(x, y, blocking, level);
+		this.setImage(images.objects, 225, 0);
+	},
+}, 'gate-top');
 /*
  * -------------------------------------------
  * PIPE CLASSES
