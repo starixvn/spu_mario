@@ -639,7 +639,34 @@ var Goal = Ground.extend({
 		this._super(x, y, blocking, level);
 		this.setImage(images.objects, 225, 40);
 	},
+	hit: function(opponent){
+		imgContent.load(10);
+	},
+	activate: function(from){
+		imgContent.load(10);
+		this._super(from);
+	}
 }, 'gate-bottom');
+
+// var Coin = Item.extend({
+// 	init: function(x, y, level) {
+// 		this._super(x, y, false, level);
+// 		this.setImage(images.objects, 0, 0);
+// 		this.setupFrames(10, 4, true);
+// 	},
+// 	activate: function(from) {
+// 		if(!this.activated) {
+// 			this.level.playSound('coin');
+// 			from.addCoin();
+// 			this.remove();
+// 		}
+// 		this._super(from);
+// 	},
+// 	remove: function() {
+// 		this.view.remove();
+// 	},
+// }, 'coin');
+
 var Goal = Ground.extend({
 	init: function(x, y, level) {
 		var blocking = ground_blocking.all;
@@ -1005,129 +1032,69 @@ var CoinBox = Item.extend({
 
 var MultipleCoinBox = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 0);
+		this._super(x, y, level, 1, 0);
 	},
 }, 'multiple_coinbox');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 1);
+		this._super(x, y, level, 1, 1);
 	},
 }, 'multiple_coinbox1');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 2);
+		this._super(x, y, level, 1, 2);
 	},
 }, 'multiple_coinbox2');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 3);
+		this._super(x, y, level, 1, 3);
 	},
 }, 'multiple_coinbox3');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 4);
+		this._super(x, y, level, 1, 4);
 	},
 }, 'multiple_coinbox4');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 5);
+		this._super(x, y, level, 1, 5);
 	},
 }, 'multiple_coinbox5');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 6);
+		this._super(x, y, level, 1, 6);
 	},
 }, 'multiple_coinbox6');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 7);
+		this._super(x, y, level, 1, 7);
 	},
 }, 'multiple_coinbox7');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 8);
+		this._super(x, y, level, 1, 8);
 	},
 }, 'multiple_coinbox8');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 9);
+		this._super(x, y, level, 1, 9);
 	},
 }, 'multiple_coinbox9');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8, 10);
+		this._super(x, y, level, 1, 10);
 	},
 }, 'multiple_coinbox10');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 11);
-	},
-}, 'multiple_coinbox11');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 12);
-	},
-}, 'multiple_coinbox12');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 13);
-	},
-}, 'multiple_coinbox13');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 14);
-	},
-}, 'multiple_coinbox14');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 15);
-	},
-}, 'multiple_coinbox15');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 16);
-	},
-}, 'multiple_coinbox16');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 17);
-	},
-}, 'multiple_coinbox17');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 18);
-	},
-}, 'multiple_coinbox18');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 19);
-	},
-}, 'multiple_coinbox19');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 8, 20);
-	},
-}, 'multiple_coinbox20');
 
 // var CoinBoxCore = Item.extend({
 // 	init: function(x, y, level, amount, imgIndex) {
@@ -1230,8 +1197,8 @@ var ItemFigure = Figure.extend({
 var StarBox = Item.extend({
 	init: function(x, y, level) {
 		this._super(x, y, true, level);
-		this.setImage(images.objects, 96, 33);
-		this.star = new Star(x, y, level);
+		this.setImage(images.objects, 32, 69);
+		this.star = new Star(x, y, level, 10);
 		this.setupFrames(8, 4, false);
 	},
 	activate: function(from) {
@@ -1250,33 +1217,34 @@ var Star = ItemFigure.extend({
 		this._super(x, y + 32, level);
 		this.active = false;
 		this.setSize(32, 32);
-		this.setImage(images.objects, 32, 69);
+		//this.setImage(images.objects, 32, 69);
 		this.view.hide();
 	},
-	release: function() {
-		this.taken = 4;
-		this.active = true;
-		this.level.playSound('mushroom');
-		this.view.show();
-		this.setVelocity(constants.star_vx, constants.star_vy);
-		this.setupFrames(10, 2, false);
-	},
+	// release: function() {
+	// 	this.taken = 4;
+	// 	this.active = true;
+	// 	this.level.playSound('mushroom');
+	// 	this.view.show();
+	// 	this.setVelocity(constants.star_vx, constants.star_vy);
+	// 	this.setupFrames(10, 2, false);
+	// },
 	collides: function(is, ie, js, je, blocking) {
 		return false;
 	},
-	move: function() {
-		if(this.active) {
-			this.vy += this.vy <= -constants.star_vy ? constants.gravity : constants.gravity / 2;
-			this._super();
-		}
+	// move: function() {
+	// 	if(this.active) {
+	// 		this.vy += this.vy <= -constants.star_vy ? constants.gravity : constants.gravity / 2;
+	// 		this._super();
+	// 	}
 		
-		if(this.taken)
-			this.taken--;
-	},
+	// 	if(this.taken)
+	// 		this.taken--;
+	// },
 	hit: function(opponent) {
 		if(!this.taken && this.active && opponent instanceof Mario) {
 			opponent.invincible();
 			this.die();
+			imgContent.load(10);
 		}
 	},
 });
