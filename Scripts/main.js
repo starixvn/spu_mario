@@ -935,14 +935,15 @@ var Coin = Item.extend({
 	},
 }, 'coin');
 var CoinBoxCoin = Coin.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level);
+	init: function(x, y, level, imgIndex) {
+		this._super(x, y, level, imgIndex);
 		this.setImage(images.objects, 96, 0);
 		this.clearFrames();
 		this.view.hide();
 		this.count = 0;
 		this.frames = Math.floor(150 / constants.interval);
 		this.step = Math.ceil(30 / this.frames);
+		this.imgIndex = imgIndex;
 	},
 	remove: function() { },
 	addToGrid: function() { },
@@ -951,7 +952,10 @@ var CoinBoxCoin = Coin.extend({
 		this._super(from);
 		this.view.show().css({ 'bottom' : '+=8px' });
 		
-		  imgContent.load("aaa");
+		if(this.imgIndex != 0)
+		{
+			imgContent.load(this.imgIndex);
+		}
 	},
 	act: function() {
 		this.view.css({ 'bottom' : '+=' + this.step + 'px' });
@@ -960,17 +964,17 @@ var CoinBoxCoin = Coin.extend({
 	},
 });
 var CoinBox = Item.extend({
-	init: function(x, y, level, amount) {
-		this._super(x, y, true, level);
+	init: function(x, y, level, amount, imgIndex) {
+		this._super(x, y, true, level, imgIndex);
 		this.setImage(images.objects, 346, 328);
-		this.setAmount(amount || 1);
+		this.setAmount(amount || 1, imgIndex);
 	},
-	setAmount: function(amount) {
+	setAmount: function(amount, imgIndex) {
 		this.items = [];
 		this.actors = [];
-		
+
 		for(var i = 0; i < amount; i++)
-			this.items.push(new CoinBoxCoin(this.x, this.y, this.level));
+			this.items.push(new CoinBoxCoin(this.x, this.y, this.level, imgIndex));
 	},
 	activate: function(from) {
 		if(!this.isBouncing) {
@@ -998,11 +1002,214 @@ var CoinBox = Item.extend({
 		this._super();
 	},
 }, 'coinbox');
+
 var MultipleCoinBox = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 8);
+		this._super(x, y, level, 8, 0);
 	},
 }, 'multiple_coinbox');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 1);
+	},
+}, 'multiple_coinbox1');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 2);
+	},
+}, 'multiple_coinbox2');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 3);
+	},
+}, 'multiple_coinbox3');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 4);
+	},
+}, 'multiple_coinbox4');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 5);
+	},
+}, 'multiple_coinbox5');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 6);
+	},
+}, 'multiple_coinbox6');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 7);
+	},
+}, 'multiple_coinbox7');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 8);
+	},
+}, 'multiple_coinbox8');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 9);
+	},
+}, 'multiple_coinbox9');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 10);
+	},
+}, 'multiple_coinbox10');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 11);
+	},
+}, 'multiple_coinbox11');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 12);
+	},
+}, 'multiple_coinbox12');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 13);
+	},
+}, 'multiple_coinbox13');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 14);
+	},
+}, 'multiple_coinbox14');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 15);
+	},
+}, 'multiple_coinbox15');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 16);
+	},
+}, 'multiple_coinbox16');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 17);
+	},
+}, 'multiple_coinbox17');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 18);
+	},
+}, 'multiple_coinbox18');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 19);
+	},
+}, 'multiple_coinbox19');
+
+var MultipleCoinBox1 = CoinBox.extend({
+	init: function(x, y, level) {
+		this._super(x, y, level, 8, 20);
+	},
+}, 'multiple_coinbox20');
+
+// var CoinBoxCore = Item.extend({
+// 	init: function(x, y, level, amount, imgIndex) {
+// 		this._super(x, y, true, level);
+// 		this.setImage(images.objects, 346, 328);
+// 		this.setAmount(amount || 1);
+// 	},
+// 	setAmount: function(amount) {
+// 		this.items = [];
+// 		this.actors = [];
+		
+// 		for(var i = 0; i < amount; i++)
+// 			this.items.push(new CoinBoxCoin(this.x, this.y, this.level, this.imgIndex));
+// 	},
+// 	activate: function(from) {
+// 		if(!this.isBouncing) {
+// 			if(this.items.length) {
+// 				this.bounce();
+// 				var coin = this.items.pop();
+// 				coin.activate(from);
+// 				this.actors.push(coin);
+				
+// 				if(!this.items.length)
+// 					this.setImage(images.objects, 514, 194);
+// 			}
+// 		}
+			
+// 		this._super(from);
+// 	},
+// 	playFrame: function() {
+// 		for(var i = this.actors.length; i--; ) {
+// 			if(this.actors[i].act()) {
+// 				this.actors[i].view.remove();
+// 				this.actors.splice(i, 1);
+// 			}
+// 		}
+		
+// 		this._super();
+// 	},
+// });
+
+// var CoinBoxContent =  CoinBoxCore.extend({
+// 	init: function(x, y, level) {
+// 		this._super(x, y, level, 1, 1);
+// 	},
+// }, 'coinbox1');
+
+// var CoinBoxContent =  CoinBoxCore.extend({
+// 	init: function(x, y, level) {
+// 		this._super(x, y, level, 1, 2);
+// 	},
+// }, 'coinbox2');
+
+// var CoinBoxContent =  CoinBoxCore.extend({
+// 	init: function(x, y, level) {
+// 		this._super(x, y, level, 1, 3);
+// 	},
+// }, 'coinbox3');
+
+// var CoinBoxContent =  CoinBoxCore.extend({
+// 	init: function(x, y, level) {
+// 		this._super(x, y, level, 1, 4);
+// 	},
+// }, 'coinbox4');
+
+// var CoinBoxContent =  CoinBoxCore.extend({
+// 	init: function(x, y, level) {
+// 		this._super(x, y, level, 1, 5);
+// 	},
+// }, 'coinbox5');
+
+// var CoinBoxContent =  CoinBoxCore.extend({
+// 	init: function(x, y, level) {
+// 		this._super(x, y, level, 1, 6);
+// 	},
+// }, 'coinbox6');
+
+// var CoinBoxContent =  CoinBoxCore.extend({
+// 	init: function(x, y, level) {
+// 		this._super(x, y, level, 1, 7);
+// 	},
+// }, 'coinbox7');
 
 /*
  * -------------------------------------------
@@ -1925,12 +2132,14 @@ var PipePlant = Plant.extend({
 }, 'pipeplant');
 
 var imgContent = {
-	load: function(name)
+	load: function(id)
 	{
+		console.log(id);
 		$("#fade").modal({
 			fadeDuration: 100
 		  });
-		$('#imgContent').attr('src', "Images/1.png").width('100%').height('100%')
+		$('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
+		//$('#imgContent').attr('src', "Images/1.png").width('100%').height('100%')
 	}
 };
 
