@@ -1004,19 +1004,23 @@ var CoinBox = Item.extend({
 			this.items.push(new CoinBoxCoin(this.x, this.y, this.level, imgIndex));
 	},
 	activate: function(from) {
-		if(!this.isBouncing) {
-			if(this.items.length) {
-				this.bounce();
-				var coin = this.items.pop();
-				coin.activate(from);
-				this.actors.push(coin);
-				
-				if(!this.items.length)
-					this.setImage(images.objects, 514, 194);
-			}
-		}
-			
+		// remove limit popup image
+
+		// if(!this.isBouncing) {
+		// if(this.items.length) {
+		this.bounce();
+		var coin = [...this.items].pop();
+		coin.activate(from);
+		this.actors.push(coin);
+
+		// if (!this.items.length)
+		this.setImage(images.objects, 514, 194);
+		// }
+		// }
+
 		this._super(from);
+			
+		// this._super(from);
 	},
 	playFrame: function() {
 		for(var i = this.actors.length; i--; ) {
