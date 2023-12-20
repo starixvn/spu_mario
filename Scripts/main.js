@@ -1037,7 +1037,7 @@ var GoalBottom = Item.extend({
 	init: function(x, y, level) {
 		this._super(x, y, false, level);
 		this.setImage(images.objects, 225, 40);
-		imgContent.load(5);
+		imgContent.loadVideo(5);
 	},
 	activate: function(from) {
 		//goal popup
@@ -2146,6 +2146,15 @@ var imgContent = {
 			src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF3Sl1N_4g&#x2F;view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
 		</iframe>`).width('100%').height('800px')
 		//$('#imgContent').attr('src', "Images/1.png").width('100%').height('100%')
+	},
+	loadVideo: function () {
+		$("#fade").modal({
+			fadeDuration: 100
+		  });
+		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
+		$('#imgContent').html(`<video width="100%" height="100%" controls>
+		<source src="Video/trailer-yem-2023.mp4.mov" type="video/mp4">
+	  </video>`).width('100%').height('800px')
 	}
 };
 
