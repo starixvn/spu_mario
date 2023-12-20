@@ -1037,6 +1037,7 @@ var GoalBottom = Item.extend({
 	init: function(x, y, level) {
 		this._super(x, y, false, level);
 		this.setImage(images.objects, 225, 40);
+		imgContent.load(5);
 	},
 	activate: function(from) {
 		//goal popup
@@ -1058,67 +1059,67 @@ var GoalTop = Item.extend({
 
 var MultipleCoinBox = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 0);
+		this._super(x, y, level, 1, 10);
 	},
 }, 'multiple_coinbox');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 1);
+		this._super(x, y, level, 1, 11);
 	},
 }, 'multiple_coinbox1');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 2);
+		this._super(x, y, level, 1, 12);
 	},
 }, 'multiple_coinbox2');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 3);
+		this._super(x, y, level, 1, 13);
 	},
 }, 'multiple_coinbox3');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 4);
+		this._super(x, y, level, 1, 14);
 	},
 }, 'multiple_coinbox4');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 5);
+		this._super(x, y, level, 1, 15);
 	},
 }, 'multiple_coinbox5');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 6);
+		this._super(x, y, level, 1, 16);
 	},
 }, 'multiple_coinbox6');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 7);
+		this._super(x, y, level, 1, 17);
 	},
 }, 'multiple_coinbox7');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 8);
+		this._super(x, y, level, 1, 18);
 	},
 }, 'multiple_coinbox8');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 9);
+		this._super(x, y, level, 1, 19);
 	},
 }, 'multiple_coinbox9');
 
 var MultipleCoinBox1 = CoinBox.extend({
 	init: function(x, y, level) {
-		this._super(x, y, level, 1, 10);
+		this._super(x, y, level, 1, 20);
 	},
 }, 'multiple_coinbox10');
 
@@ -2137,8 +2138,6 @@ var PipePlant = Plant.extend({
 var imgContent = {
 	load: function(id)
 	{
-		id = id + 10;
-		console.log(id);
 		$("#fade").modal({
 			fadeDuration: 100
 		  });
