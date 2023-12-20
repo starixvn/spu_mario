@@ -521,6 +521,7 @@ var Matter = Base.extend({
 			backgroundImage : img ? c2u(img) : 'none',
 			backgroundPosition : '-' + (x || 0) + 'px -' + (y || 0) + 'px',
 		});
+
 		this._super(img, x, y);
 	},
 	setPosition: function(x, y) {
@@ -540,7 +541,7 @@ var Matter = Base.extend({
 var Ground = Matter.extend({
 	init: function(x, y, blocking, level) {
 		this._super(x, y, blocking, level);
-	},
+	}
 });
 
 /*
@@ -633,20 +634,21 @@ var Goal = Ground.extend({
 	},
 }, 'goal-top-left');
 
-var Goal = Ground.extend({
-	init: function(x, y, level) {
-		var blocking = ground_blocking.all;
-		this._super(x, y, blocking, level);
-		this.setImage(images.objects, 225, 40);
-	},
-	hit: function(opponent){
-		imgContent.load(10);
-	},
-	activate: function(from){
-		imgContent.load(10);
-		this._super(from);
-	}
-}, 'gate-bottom');
+// var Goal = Ground.extend({
+// 	init: function(x, y, level) {
+// 		var blocking = ground_blocking.all;
+// 		this._super(x, y, blocking, level);
+// 		this.setImage(images.objects, 225, 40);
+// 	}
+// }, 'gate-bottom');
+
+// var Goal = Ground.extend({
+// 	init: function(x, y, level) {
+// 		var blocking = ground_blocking.all;
+// 		this._super(x, y, blocking, level);
+// 		this.setImage(images.objects, 225, 0);
+// 	},
+// }, 'gate-top');
 
 // var Coin = Item.extend({
 // 	init: function(x, y, level) {
@@ -667,13 +669,9 @@ var Goal = Ground.extend({
 // 	},
 // }, 'coin');
 
-var Goal = Ground.extend({
-	init: function(x, y, level) {
-		var blocking = ground_blocking.all;
-		this._super(x, y, blocking, level);
-		this.setImage(images.objects, 225, 0);
-	},
-}, 'gate-top');
+
+
+//////
 /*
  * -------------------------------------------
  * PIPE CLASSES
@@ -979,6 +977,7 @@ var CoinBoxCoin = Coin.extend({
 		this._super(from);
 		this.view.show().css({ 'bottom' : '+=8px' });
 		
+		// jump
 		if(this.imgIndex != 0)
 		{
 			imgContent.load(this.imgIndex);
@@ -1033,6 +1032,29 @@ var CoinBox = Item.extend({
 		this._super();
 	},
 }, 'coinbox');
+
+var GoalBottom = Item.extend({
+	init: function(x, y, level) {
+		this._super(x, y, false, level);
+		this.setImage(images.objects, 225, 40);
+	},
+	activate: function(from) {
+		//goal popup
+		imgContent.load(10);
+	},
+}, 'gate-bottom');
+
+var GoalTop = Item.extend({
+	init: function(x, y, level) {
+		this._super(x, y, false, level);
+		this.setImage(images.objects, 225, 0);
+	},
+	// activate: function(from) {
+	// 	imgContent.load(10);
+	// },
+}, 'gate-top');
+
+//box popup
 
 var MultipleCoinBox = CoinBox.extend({
 	init: function(x, y, level) {
@@ -1739,6 +1761,12 @@ var Gumpa = Enemy.extend({
 		this.clearFrames();
 		
 		if(this.death_mode === death_modes.normal) {
+			//renovate monster
+			let thisclass = this;
+			setTimeout(function(){
+				new Gumpa(thisclass.x,thisclass.y,thisclass.level);
+			},5000);
+
 			this.level.playSound('enemy_die');
 			this.setImage(images.enemies, 102, 228);
 			this.deathCount = Math.ceil(600 / constants.interval);
@@ -1749,6 +1777,9 @@ var Gumpa = Enemy.extend({
 			this.deathDir = 1;
 			this.deathStep = Math.ceil(150 / this.deathFrames);
 		}
+
+		//monster popup
+		imgContent.load(9);
 		
 		this._super();
 	},
@@ -2106,11 +2137,15 @@ var PipePlant = Plant.extend({
 var imgContent = {
 	load: function(id)
 	{
+		id = id + 10;
 		console.log(id);
 		$("#fade").modal({
 			fadeDuration: 100
 		  });
-		$('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
+		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
+		$('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
+			src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF3Sl1N_4g&#x2F;view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
+		</iframe>`).width('100%').height('800px')
 		//$('#imgContent').attr('src', "Images/1.png").width('100%').height('100%')
 	}
 };
