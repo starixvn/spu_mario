@@ -6,6 +6,31 @@
  * *****
  */
 
+var gumpaList = {
+	'ballmonster1': 8,
+	'ballmonster2': 9,
+	'ballmonster3': 10,
+	'ballmonster4': 11,
+	'ballmonster5': 12,
+	'ballmonster6': 13,
+	'ballmonster7': 14,
+	'ballmonster8': 15,
+	'ballmonster9': 16,
+};
+
+var multipleCoinBoxList = {
+	'multiple_coinbox1': 11,
+	'multiple_coinbox2': 12,
+	'multiple_coinbox3': 13,
+	'multiple_coinbox4': 14,
+	'multiple_coinbox5': 15,
+	'multiple_coinbox6': 16,
+	'multiple_coinbox7': 17,
+	'multiple_coinbox8': 18,
+	'multiple_coinbox9': 19,
+	'multiple_coinbox10': 20,
+};
+
 /*
  * -------------------------------------------
  * BASE CLASS
@@ -1055,74 +1080,6 @@ var GoalTop = Item.extend({
 	// },
 }, 'gate-top');
 
-//box popup
-
-var MultipleCoinBox = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 10);
-	},
-}, 'multiple_coinbox');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 11);
-	},
-}, 'multiple_coinbox1');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 12);
-	},
-}, 'multiple_coinbox2');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 13);
-	},
-}, 'multiple_coinbox3');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 14);
-	},
-}, 'multiple_coinbox4');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 15);
-	},
-}, 'multiple_coinbox5');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 16);
-	},
-}, 'multiple_coinbox6');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 17);
-	},
-}, 'multiple_coinbox7');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 18);
-	},
-}, 'multiple_coinbox8');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 19);
-	},
-}, 'multiple_coinbox9');
-
-var MultipleCoinBox1 = CoinBox.extend({
-	init: function(x, y, level) {
-		this._super(x, y, level, 1, 20);
-	},
-}, 'multiple_coinbox10');
-
 // var CoinBoxCore = Item.extend({
 // 	init: function(x, y, level, amount, imgIndex) {
 // 		this._super(x, y, true, level);
@@ -1762,12 +1719,6 @@ var Gumpa = Enemy.extend({
 		this.clearFrames();
 		
 		if(this.death_mode === death_modes.normal) {
-			//renovate monster
-			let thisclass = this;
-			setTimeout(function(){
-				new Gumpa(thisclass.x,thisclass.y,thisclass.level);
-			},5000);
-
 			this.level.playSound('enemy_die');
 			this.setImage(images.enemies, 102, 228);
 			this.deathCount = Math.ceil(600 / constants.interval);
@@ -1778,13 +1729,10 @@ var Gumpa = Enemy.extend({
 			this.deathDir = 1;
 			this.deathStep = Math.ceil(150 / this.deathFrames);
 		}
-
-		//monster popup
-		imgContent.load(9);
 		
 		this._super();
 	},
-}, 'ballmonster');
+});
 
 /*
  * -------------------------------------------
@@ -2134,6 +2082,36 @@ var PipePlant = Plant.extend({
 		return true;
 	},
 }, 'pipeplant');
+
+// Init
+//// monster popup
+Object.keys(gumpaList).forEach(key => {
+	let Monster = Gumpa.extend({
+		die: function() {
+			this._super();
+	
+			if(this.death_mode === death_modes.normal) {
+				//renovate monster
+				let thisclass = this;
+				setTimeout(function(){
+					new Monster(thisclass.x,thisclass.y,thisclass.level);
+				},5000);
+
+				//monster popup
+				imgContent.load(gumpaList[key]);
+			}
+		}
+	}, key);
+});
+
+//// box popup
+Object.keys(multipleCoinBoxList).forEach(key => {
+	CoinBox.extend({
+		init: function(x, y, level) {
+			this._super(x, y, level, 1, multipleCoinBoxList[key]);
+		},
+	}, key);
+});
 
 var imgContent = {
 	load: function(id)
