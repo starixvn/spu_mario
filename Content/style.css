@@ -77,6 +77,24 @@
 	right: 8px;
 }
 
+.sound-on {
+	height: 40px;
+    width: 40px;
+    background-image: url(speaker-filled-audio-tool.png);
+    top: 12px;
+    right: 8px;
+    background-size: 40px;
+}
+
+.sound-off {
+	height: 35px;
+    width: 35px;
+    background-image: url(mute.png);
+    top: 12px;
+    right: 8px;
+    background-size: 35px;
+}
+
 .figure {
 	margin: 0;
 	padding: 0;

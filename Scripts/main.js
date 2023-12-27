@@ -132,7 +132,7 @@ var Level = Base.extend({
 		this.decorations = [];
 		this.items = [];
 		this.coinGauge = new Gauge('coin', 0, 0, 10, 4, true);
-		this.liveGauge = new Gauge('live', 0, 430, 6, 6, true);
+		// this.liveGauge = new Gauge('live', 0, 430, 6, 6, true);
 	},
 	reload: function() {
 		var settings = {};
@@ -306,7 +306,7 @@ var Level = Base.extend({
 			this.items[i].playFrame();
 		
 		this.coinGauge.playFrame();
-		this.liveGauge.playFrame();
+		// this.liveGauge.playFrame();
 	},
 	start: function() {
 		var me = this;
@@ -974,7 +974,8 @@ var Coin = Item.extend({
 	},
 	activate: function(from) {
 		if(!this.activated) {
-			this.level.playSound('coin');
+			PlaySound('Sound/smb3_coin.wav');
+			// this.level.playSound('coin');
 			from.addCoin();
 			this.remove();
 		}
@@ -1067,6 +1068,8 @@ var GoalBottom = Item.extend({
 	activate: function(from) {
 		//goal popup
 		imgContent.load(10);
+
+		PlaySound('Sound/smb3_level_clear.wav');
 	},
 }, 'gate-bottom');
 
@@ -1521,7 +1524,8 @@ var Mario = Hero.extend({
 		this.clearFrames();
 	},
 	jump: function() {
-		this.level.playSound('jump');
+		PlaySound('Sound/smb3_jump.wav');
+		// this.level.playSound('jump');
 		this.vy = constants.jumping_v;
 	},
 	move: function() {
@@ -2100,6 +2104,8 @@ Object.keys(gumpaList).forEach(key => {
 				//monster popup
 				imgContent.load(gumpaList[key]);
 			}
+			
+			PlaySound('Sound/smw_yoshi_runs_away.wav');
 		}
 	}, key);
 });
@@ -2117,7 +2123,8 @@ var imgContent = {
 	load: function(id)
 	{
 		$("#fade").modal({
-			fadeDuration: 100
+			fadeDuration: 200,
+			sound: btnSound.hasClass('sound-on') ? groundSound : null
 		  });
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 		$('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
@@ -2127,12 +2134,13 @@ var imgContent = {
 	},
 	loadVideo: function () {
 		$("#fade").modal({
-			fadeDuration: 100
+			fadeDuration: 500,
+			sound: btnSound.hasClass('sound-on') ? groundSound : null
 		  });
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 		$('#imgContent').html(`<video width="100%" height="100%" controls>
-		<source src="Video/trailer-yem-2023.mp4.mov" type="video/mp4">
-	  </video>`).width('100%').height('800px')
+			<source src="Video/trailer-yem-2023.mp4.mov" type="video/mp4">
+		</video>`).width('100%').height('800px');
 	}
 };
 
@@ -2146,4 +2154,33 @@ $(document).ready(function() {
 	level.load(definedLevels[0]);
 	level.start();
 	keys.bind();
+});
+
+var btnSound = $('#sound');
+var groundSound = PlaySound('Sound/Ground.mp3', true);
+
+function PlaySound(path, isLoop = false) {
+	if (btnSound.hasClass('sound-on'))
+	{
+		var audio = new Audio(path);
+		audio.loop = isLoop;
+		audio.play();
+
+		return audio;
+	}
+}
+
+btnSound.on('click',function () {
+	if(btnSound.hasClass('sound-on'))
+	{
+		groundSound.pause();
+		btnSound.removeClass('sound-on');
+		btnSound.addClass('sound-off');
+	}
+	else
+	{
+		groundSound.play();
+		btnSound.removeClass('sound-off');
+		btnSound.addClass('sound-on');
+	}
 });
