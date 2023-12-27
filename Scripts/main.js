@@ -1493,7 +1493,8 @@ var Mario = Hero.extend({
 		this.setMarioState(mario_states.fire);
 	},
 	walk: function(reverse, fast) {
-		this.vx = constants.walking_v * (fast ? 2 : 1) * (reverse ? - 1 : 1);
+		// speed
+		this.vx = constants.walking_v * (fast ? 2 : 1) * (reverse ? - 1 : 1) * 1.5;
 	},
 	walkRight: function() {
 		if(this.state === size_states.small) {
@@ -2115,6 +2116,14 @@ Object.keys(multipleCoinBoxList).forEach(key => {
 	CoinBox.extend({
 		init: function(x, y, level) {
 			this._super(x, y, level, 1, multipleCoinBoxList[key]);
+		},
+		activate: function(from) {
+			this._super(from);
+
+			// renovate box
+			setTimeout(() => {
+				this.setImage(images.objects, 346, 328);
+			}, 5000);
 		},
 	}, key);
 });
