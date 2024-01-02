@@ -7,31 +7,31 @@
  */
 
 var gumpaList = {
-	'ballmonster_cts': 11,
-	'ballmonster_fps': 19,
-	'ballmonster_ai': 28
+	'ballmonster_cts': 12,
+	'ballmonster_fps': 20,
+	'ballmonster_ai': 29
 };
 
 var multipleCoinBoxList = {
 	'multiple_coinbox_cts': 7,
 	'multiple_coinbox_cts_01': 8,
-	'multiple_coinbox_cts_02': 9,
-	'multiple_coinbox_cts_03': 10,
-	'multiple_coinbox_fps': 12,
-	'multiple_coinbox_fps_01': 13,
-	'multiple_coinbox_fps_02': 14,
-	'multiple_coinbox_fps_03': 15,
-	// 'multiple_coinbox_fps_04': 16,
-	// 'multiple_coinbox_fps_05': 17,
-	// 'multiple_coinbox_fps_06': 18,
-	'multiple_coinbox_ai': 20,
-	'multiple_coinbox_ai_01': 21,
-	// 'multiple_coinbox_ai_02': 22,
-	'multiple_coinbox_ai_03': 23,
-	'multiple_coinbox_ai_04': 24,
-	'multiple_coinbox_ai_05': 25,
-	'multiple_coinbox_ai_06': 26,
-	'multiple_coinbox_ai_07': 27,
+	'multiple_coinbox_cts_02': 10,
+	'multiple_coinbox_cts_03': 11,
+	'multiple_coinbox_fps': 13,
+	'multiple_coinbox_fps_01': 14,
+	'multiple_coinbox_fps_02': 15,
+	'multiple_coinbox_fps_03': 16,
+	// 'multiple_coinbox_fps_04': 17,
+	// 'multiple_coinbox_fps_05': 18,
+	// 'multiple_coinbox_fps_06': 19,
+	'multiple_coinbox_ai': 21,
+	'multiple_coinbox_ai_01': 22,
+	// 'multiple_coinbox_ai_02': 23,
+	'multiple_coinbox_ai_03': 24,
+	'multiple_coinbox_ai_04': 25,
+	'multiple_coinbox_ai_05': 26,
+	'multiple_coinbox_ai_06': 27,
+	'multiple_coinbox_ai_07': 28,
 };
 
 /*
@@ -2116,7 +2116,7 @@ var GoalBottom = Item.extend({
 	},
 	activate: function(from) {
 		//goal popup
-		imgContent.load(29);
+		imgContent.load(30);
 
 		PlaySound('Sound/smb3_level_clear.wav');
 	},
