@@ -7,28 +7,31 @@
  */
 
 var gumpaList = {
-	'ballmonster1': 8,
-	'ballmonster2': 9,
-	'ballmonster3': 10,
-	'ballmonster4': 11,
-	'ballmonster5': 12,
-	'ballmonster6': 13,
-	'ballmonster7': 14,
-	'ballmonster8': 15,
-	'ballmonster9': 16,
+	'ballmonster_cts': 11,
+	'ballmonster_fps': 19,
+	'ballmonster_ai': 28
 };
 
 var multipleCoinBoxList = {
-	'multiple_coinbox1': 11,
-	'multiple_coinbox2': 12,
-	'multiple_coinbox3': 13,
-	'multiple_coinbox4': 14,
-	'multiple_coinbox5': 15,
-	'multiple_coinbox6': 16,
-	'multiple_coinbox7': 17,
-	'multiple_coinbox8': 18,
-	'multiple_coinbox9': 19,
-	'multiple_coinbox10': 20,
+	'multiple_coinbox_cts': 7,
+	'multiple_coinbox_cts_01': 8,
+	'multiple_coinbox_cts_02': 9,
+	'multiple_coinbox_cts_03': 10,
+	'multiple_coinbox_fps': 12,
+	'multiple_coinbox_fps_01': 13,
+	'multiple_coinbox_fps_02': 14,
+	'multiple_coinbox_fps_03': 15,
+	// 'multiple_coinbox_fps_04': 16,
+	// 'multiple_coinbox_fps_05': 17,
+	// 'multiple_coinbox_fps_06': 18,
+	'multiple_coinbox_ai': 20,
+	'multiple_coinbox_ai_01': 21,
+	// 'multiple_coinbox_ai_02': 22,
+	'multiple_coinbox_ai_03': 23,
+	'multiple_coinbox_ai_04': 24,
+	'multiple_coinbox_ai_05': 25,
+	'multiple_coinbox_ai_06': 26,
+	'multiple_coinbox_ai_07': 27,
 };
 
 /*
@@ -1058,30 +1061,6 @@ var CoinBox = Item.extend({
 		this._super();
 	},
 }, 'coinbox');
-
-var GoalBottom = Item.extend({
-	init: function(x, y, level) {
-		this._super(x, y, false, level);
-		this.setImage(images.objects, 225, 40);
-		imgContent.loadVideo(5);
-	},
-	activate: function(from) {
-		//goal popup
-		imgContent.load(10);
-
-		PlaySound('Sound/smb3_level_clear.wav');
-	},
-}, 'gate-bottom');
-
-var GoalTop = Item.extend({
-	init: function(x, y, level) {
-		this._super(x, y, false, level);
-		this.setImage(images.objects, 225, 0);
-	},
-	// activate: function(from) {
-	// 	imgContent.load(10);
-	// },
-}, 'gate-top');
 
 // var CoinBoxCore = Item.extend({
 // 	init: function(x, y, level, amount, imgIndex) {
@@ -2127,6 +2106,31 @@ Object.keys(multipleCoinBoxList).forEach(key => {
 		},
 	}, key);
 });
+
+//// goal popup
+var GoalBottom = Item.extend({
+	init: function(x, y, level) {
+		this._super(x, y, false, level);
+		this.setImage(images.objects, 225, 40);
+		imgContent.load(6);
+	},
+	activate: function(from) {
+		//goal popup
+		imgContent.load(29);
+
+		PlaySound('Sound/smb3_level_clear.wav');
+	},
+}, 'gate-bottom');
+
+var GoalTop = Item.extend({
+	init: function(x, y, level) {
+		this._super(x, y, false, level);
+		this.setImage(images.objects, 225, 0);
+	},
+	// activate: function(from) {
+	// 	imgContent.load(10);
+	// },
+}, 'gate-top');
 
 var imgContent = {
 	load: function(id)
