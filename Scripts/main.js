@@ -2163,8 +2163,14 @@ var GoalBottom = Item.extend({
 		this.setImage(images.objects, 225, 40);
 	},
 	activate: function (from) {
-		//goal popup
-		imgContent.load(nextPlan);
+		$("#effect").html('<div class="pyro"><div class="before"></div><div class="after"></div></div>');
+
+		setTimeout(() => {
+			$("#effect").html('');
+
+			//goal popup
+			imgContent.load(nextPlan);
+		}, 2000);
 
 		PlaySound('Sound/smb3_level_clear.wav');
 	},
@@ -2346,8 +2352,7 @@ function ClosePopupAction(renovate) {
 		sound.play();
 	}
 
-	if (renovate)
-	{
+	if (renovate) {
 		renovate();
 	}
 }
