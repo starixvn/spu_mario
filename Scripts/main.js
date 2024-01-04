@@ -10,31 +10,42 @@ var map;
 var mario_real;
 
 var gumpaList = {
-	'ballmonster_cts': 12,
-	'ballmonster_fps': 20,
-	'ballmonster_ai': 29
+	'ballmonster_cts': 36,
+	'ballmonster_fps': 15,
+	'ballmonster_ai': 24,
+	'multiple_coinbox_ai_07': 27,
 };
 
 var multipleCoinBoxList = {
-	'multiple_coinbox_cts_00': 7,
-	'multiple_coinbox_cts_01': 8,
-	'multiple_coinbox_cts_02': 10,
-	'multiple_coinbox_cts_03': 11,
-	'multiple_coinbox_fps_00': 13,
-	'multiple_coinbox_fps_01': 14,
-	'multiple_coinbox_fps_02': 15,
-	'multiple_coinbox_fps_03': 16,
+	'multiple_coinbox_summary_00': 8,
+	'multiple_coinbox_cts_00': 29,
+	'multiple_coinbox_cts_01': 30, //31 32
+	'multiple_coinbox_cts_02': 33,
+	'multiple_coinbox_cts_03': 34,
+	'multiple_coinbox_cts_04': 35,
+	'multiple_coinbox_fps_00': 9,
+	'multiple_coinbox_fps_01': 10,
+	'multiple_coinbox_fps_02': 11,
+	'multiple_coinbox_fps_03': 12, //13 14
 	// 'multiple_coinbox_fps_04': 17,
 	// 'multiple_coinbox_fps_05': 18,
 	// 'multiple_coinbox_fps_06': 19,
-	'multiple_coinbox_ai_00': 21,
-	'multiple_coinbox_ai_01': 22,
-	// 'multiple_coinbox_ai_02': 23,
-	'multiple_coinbox_ai_03': 24,
-	'multiple_coinbox_ai_04': 25,
-	'multiple_coinbox_ai_05': 26,
-	'multiple_coinbox_ai_06': 27,
-	'multiple_coinbox_ai_07': 28,
+	'multiple_coinbox_ai_00': 16,
+	'multiple_coinbox_ai_01': 17,
+	'multiple_coinbox_ai_02': 18, //20 21 22
+	'multiple_coinbox_ai_03': 22,
+	'multiple_coinbox_ai_04': 23,
+	'multiple_coinbox_ai_05': 25,
+	'multiple_coinbox_ai_06': 26,
+};
+
+var retro = 7;
+var guidline = 47;
+var nextPlan = 37
+var mapIndex = {
+	map01: 2, // fps
+	map02: 3, // ai
+	map03: 1  // cts
 };
 
 /*
@@ -439,12 +450,16 @@ var Figure = Base.extend({
 					if (obj instanceof Item && isHero && (blocking === ground_blocking.bottom || obj.blocking === ground_blocking.none))
 						obj.activate(this);
 
+					if ((obj instanceof RightTopPipeMap00 || obj instanceof LeftTopPipeMap00) && keys.down) {
+						ChangeStageFromPipe(mapIndex.map01);
+					}
+
 					if ((obj instanceof RightTopPipeMap01 || obj instanceof LeftTopPipeMap01) && keys.down) {
-						ChangeStageFromPipe(1);
+						ChangeStageFromPipe(mapIndex.map02);
 					}
 
 					if ((obj instanceof RightTopPipeMap02 || obj instanceof LeftTopPipeMap02) && keys.down) {
-						ChangeStageFromPipe(2);
+						ChangeStageFromPipe(mapIndex.map03);
 					}
 
 					if ((obj.blocking & blocking) === blocking)
@@ -1221,7 +1236,6 @@ var Star = ItemFigure.extend({
 		if (!this.taken && this.active && opponent instanceof Mario) {
 			opponent.invincible();
 			this.die();
-			imgContent.load(10);
 		}
 	},
 });
@@ -2136,7 +2150,7 @@ var GoalBottom = Item.extend({
 	},
 	activate: function (from) {
 		//goal popup
-		imgContent.load(30);
+		imgContent.load(nextPlan);
 
 		PlaySound('Sound/smb3_level_clear.wav');
 	},
@@ -2188,9 +2202,10 @@ Item.extend({
 	init: function (x, y, level) {
 		this._super(x, y, false, level);
 		this.setImage(images.objects, 406, 88);
+		imgContent.load(guidline);
 	},
 	activate: function (from) {
-		imgContent.load(3);
+		imgContent.load(retro);
 	},
 }, 'flag-bottom-right');
 
@@ -2210,14 +2225,11 @@ var RightTopPipe = Item.extend({
 	}
 }, 'pipe_top_right');
 
-var RightTopPipeMap01 = RightTopPipe.extend({
-	init: function (x, y, level) {
-		this._super(x, y, level);
-		imgContent.load(40);
-	}
-}, 'pipe_top_right_01');
-var RightTopPipeMap02 = RightTopPipe.extend({}, 'pipe_top_right_02');
+var RightTopPipeMap00 = RightTopPipe.extend({}, 'pipe_top_right_00');
+var LeftTopPipeMap00 = LeftTopPipe.extend({}, 'pipe_top_left_00');
+var RightTopPipeMap01 = RightTopPipe.extend({}, 'pipe_top_right_01');
 var LeftTopPipeMap01 = LeftTopPipe.extend({}, 'pipe_top_left_01');
+var RightTopPipeMap02 = RightTopPipe.extend({}, 'pipe_top_right_02');
 var LeftTopPipeMap02 = LeftTopPipe.extend({}, 'pipe_top_left_02');
 
 var imgContent = {
@@ -2228,7 +2240,7 @@ var imgContent = {
 		});
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 		$('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
-			src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF3Sl1N_4g&#x2F;view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
+			src="https://www.canva.com/design/DAF45PufdnM/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
 		</iframe>`).width('100%').height('800px')
 		//$('#imgContent').attr('src', "Images/1.png").width('100%').height('100%')
 	},

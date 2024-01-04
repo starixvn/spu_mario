@@ -2,7 +2,7 @@
  * *****
  * WRITTEN BY FLORIAN RAPPL, 2012.
  * florian-rappl.de
- * mail@florian-rappl.de
+ * mctsl@florian-rappl.de
  * *****
  */
 
@@ -33,6 +33,7 @@ monster
 */
 
 var definedLevels = [
+	// summary
 	{
 		width: 252,
 		height: 15,
@@ -48,34 +49,14 @@ var definedLevels = [
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
-
-				// cts
-
 				['', '', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'grass_top', 'soil'],
-				['', '', '', '', '', 'multiple_coinbox_cts_00', '', '', '', '', '', 'brown_block', 'brown_block', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'planted_soil_left'],
-				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'planted_soil_middle'],
-				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'planted_soil_right'],
-				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', 'multiple_coinbox_cts_01', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', 'brown_block', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', 'multiple_coinbox_cts_02', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', 'brown_block', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', 'multiple_coinbox_cts_03', '', '', 'bush_left', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', '', 'bush_middle', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', '', 'bush_middle_right', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', '', 'bush_right', 'grass_top', 'soil'],
+				['', '', '', '', '', 'multiple_coinbox_summary_00', '', '', '', '', '', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
-				// ['' , '' , '' , '' , '' , '' , '' , '' , '' , 'mushroombox' , '' , '' , '' , 'grass_top' , 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', '', 'ballmonster_cts', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', 'pipe_top_left_01', 'pipe_left', 'pipe_left_grass', 'pipe_left_soil'],
-				['', '', '', '', '', '', '', '', '', '', '', 'pipe_top_right_01', 'pipe_right', 'pipe_right_grass', 'pipe_right_soil'],
+				['', '', '', '', '', '', '', '', '', '', '', 'pipe_top_left_00', 'pipe_left', 'pipe_left_grass', 'pipe_left_soil'],
+				['', '', '', '', '', '', '', '', '', '', '', 'pipe_top_right_00', 'pipe_right', 'pipe_right_grass', 'pipe_right_soil'],
 
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
@@ -109,11 +90,114 @@ var definedLevels = [
 				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
 			]
 	}
 
 	,
+	// ai
+	{
+		width: 252,
+		height: 15,
+		id: 0,
+		background: 1,
+		data:
+			[
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', 'mario', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 
+				// ai
+
+				['', '', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['', '', '', '', '', 'multiple_coinbox_ai_00', '', '', '', '', '', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'planted_soil_left'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'planted_soil_middle'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'planted_soil_right'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', 'multiple_coinbox_ai_01', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', 'multiple_coinbox_ai_02', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', 'brown_block', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', 'multiple_coinbox_ai_03', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', 'multiple_coinbox_ai_04', '', '', 'bush_left', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', 'bush_middle', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', 'bush_middle_right', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', 'bush_right', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				// ['' , '' , '' , '' , '' , '' , '' , '' , '' , 'mushroombox' , '' , '' , '' , 'grass_top' , 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', 'pipe_top_left_01', 'pipe_left', 'pipe_left_grass', 'pipe_left_soil'],
+				['', '', '', '', '', '', '', '', '', '', '', 'pipe_top_right_01', 'pipe_right', 'pipe_right_grass', 'pipe_right_soil'],
+
+				['', '', '', '', '', '', '', '', '', '', '', '', 'ballmonster_ai', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['coin', 'coin', 'multiple_coinbox_ai_05', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['coin', 'coin', 'multiple_coinbox_ai_06', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+				['', '', '', '', 'brown_block', '', '', '', '', '', '', '', 'multiple_coinbox_ai_07', 'grass_top', 'soil'],
+				['', '', '', '', '', 'brown_block', '', '', '', '', 'grass_top_left', 'grass_left', 'grass_left', 'grass_top_left_corner', 'soil'],
+				['', '', '', '', '', '', 'brown_block', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
+			]
+	}
+
+	,
+	// fps
 	{
 		width: 252,
 		height: 15,
@@ -131,7 +215,7 @@ var definedLevels = [
 				// fps
 
 				['', '', '', '', '', '', '', '', '', '', 'mario', 'pipe_top_left', 'pipe_left', 'pipe_left', 'pipe_left', 'pipe_left_grass', 'pipe_left_soil'],
-				['', '', '', '', '', 'multiple_coinbox_fps', '', '', '', '', '', 'pipe_top_right', 'pipe_right', 'pipe_right', 'pipe_right', 'pipe_right_grass', 'pipe_right_soil'],
+				['', '', '', '', '', 'multiple_coinbox_fps_00', '', '', '', '', '', 'pipe_top_right', 'pipe_right', 'pipe_right', 'pipe_right', 'pipe_right_grass', 'pipe_right_soil'],
 				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil', 'soil', 'soil', 'soil'],
@@ -226,7 +310,7 @@ var definedLevels = [
 	}
 
 	,
-
+	// cts
 	{
 		width: 252,
 		height: 15,
@@ -238,32 +322,32 @@ var definedLevels = [
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'mario', 'pipe_top_left', 'pipe_left', 'pipe_left_grass', 'pipe_left_soil'],
-				['', '', '', '', '', '', '', '', '', '', '', 'pipe_top_right', 'pipe_right', 'pipe_right_grass', 'pipe_right_soil'],
+				['', '', '', '', '', '', 'multiple_coinbox_cts_00', '', '', '', '', 'pipe_top_right', 'pipe_right', 'pipe_right_grass', 'pipe_right_soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', 'ballmonster9', 'grass_top', 'soil'],
-				['', '', '', '', '', '', 'multiple_coinbox_ai_01', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['', '', '', '', '', '', 'multiple_coinbox_cts_01', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
-				['', '', '', '', '', '', 'multiple_coinbox_ai_03', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
-				['', '', '', '', '', '', 'multiple_coinbox_ai_04', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['', '', '', '', '', '', 'multiple_coinbox_cts_02', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
-				['', '', '', '', '', '', 'multiple_coinbox_ai_05', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
-				['', '', '', '', '', '', 'multiple_coinbox_ai_06', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['', '', '', '', '', '', 'multiple_coinbox_cts_03', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
-				['', '', '', '', '', '', 'multiple_coinbox_ai_07', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
+				['', '', '', '', '', '', 'multiple_coinbox_cts_04', '', '', '', 'brown_block', 'brown_block', 'brown_block', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
-				['', '', '', '', '', '', '', '', '', '', '', '', 'ballmonster_ai', 'grass_top', 'soil'],
+				['', '', '', '', '', '', '', '', '', '', '', '', 'ballmonster_cts', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
