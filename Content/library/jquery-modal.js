@@ -87,10 +87,7 @@
         this.block();
         this.anchor.blur();
 
-        if (this.options.sound)
-        {
-            this.options.sound.pause();
-        }
+        this.options.actionOpen();
 
         if(this.options.doFade) {
           setTimeout(function() {
@@ -113,7 +110,8 @@
       close: function() {
         modals.pop();
         this.unblock();
-        this.hide(this.options.sound);
+        this.hide();
+        this.options.actionClose();
 
         if (!$.modal.isActive())
           $(document).off('keydown.modal');
@@ -158,12 +156,7 @@
         this.$elm.trigger($.modal.OPEN, [this._ctx()]);
       },
   
-      hide: function(sound) {
-        if (sound)
-        {
-            sound.play(); 
-        }
-
+      hide: function() {
         this.$elm.trigger($.modal.BEFORE_CLOSE, [this._ctx()]);
         if (this.closeButton) this.closeButton.remove();
         var _this = this;

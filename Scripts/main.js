@@ -43,9 +43,18 @@ var retro = 7;
 var guidline = 47;
 var nextPlan = 37
 var mapIndex = {
-	map01: 2, // fps
-	map02: 3, // ai
-	map03: 1  // cts
+	map01: {
+		mapNumber: 2,
+		mapSummaryIndex: 9
+	}, // fps
+	map02: {
+		mapNumber: 3,
+		mapSummaryIndex: 16
+	}, // ai
+	map03: {
+		mapNumber: 1,
+		mapSummaryIndex: 29
+	}, // cts
 };
 
 /*
@@ -1016,15 +1025,14 @@ var Coin = Item.extend({
 	},
 }, 'coin');
 var CoinBoxCoin = Coin.extend({
-	init: function (x, y, level, imgIndex) {
-		this._super(x, y, level, imgIndex);
+	init: function (x, y, level) {
+		this._super(x, y, level);
 		this.setImage(images.objects, 96, 0);
 		this.clearFrames();
 		this.view.hide();
 		this.count = 0;
 		this.frames = Math.floor(150 / constants.interval);
 		this.step = Math.ceil(30 / this.frames);
-		this.imgIndex = imgIndex;
 	},
 	remove: function () { },
 	addToGrid: function () { },
@@ -1032,11 +1040,6 @@ var CoinBoxCoin = Coin.extend({
 	activate: function (from) {
 		this._super(from);
 		this.view.show().css({ 'bottom': '+=8px' });
-
-		// jump
-		if (this.imgIndex != 0) {
-			imgContent.load(this.imgIndex);
-		}
 	},
 	act: function () {
 		this.view.css({ 'bottom': '+=' + this.step + 'px' });
@@ -1045,17 +1048,17 @@ var CoinBoxCoin = Coin.extend({
 	},
 });
 var CoinBox = Item.extend({
-	init: function (x, y, level, amount, imgIndex) {
-		this._super(x, y, true, level, imgIndex);
+	init: function (x, y, level, amount) {
+		this._super(x, y, true, level);
 		this.setImage(images.objects, 346, 328);
-		this.setAmount(amount || 1, imgIndex);
+		this.setAmount(amount || 1);
 	},
-	setAmount: function (amount, imgIndex) {
+	setAmount: function (amount) {
 		this.items = [];
 		this.actors = [];
 
 		for (var i = 0; i < amount; i++)
-			this.items.push(new CoinBoxCoin(this.x, this.y, this.level, imgIndex));
+			this.items.push(new CoinBoxCoin(this.x, this.y, this.level));
 	},
 	activate: function (from) {
 		// remove limit popup image
@@ -2121,7 +2124,10 @@ Object.keys(gumpaList).forEach(key => {
 Object.keys(multipleCoinBoxList).forEach(key => {
 	CoinBox.extend({
 		init: function (x, y, level) {
-			this._super(x, y, level, 1, multipleCoinBoxList[key]);
+			this._super(x, y, level, 1);
+
+			this.imgIndex = multipleCoinBoxList[key];
+
 			if (key.includes('00')) {
 				this.setImage(images.objects, 514, 493);
 			}
@@ -2129,15 +2135,23 @@ Object.keys(multipleCoinBoxList).forEach(key => {
 		activate: function (from) {
 			this._super(from);
 
-			// renovate box
-			setTimeout(() => {
-				if (key.includes('00')) {
-					this.setImage(images.objects, 514, 493);
-				}
-				else {
-					this.setImage(images.objects, 346, 328);
-				}
-			}, 5000);
+			var thisclass = this;
+			var renovate = function () {
+				// renovate box
+				setTimeout(() => {
+					if (key.includes('00')) {
+						thisclass.setImage(images.objects, 514, 493);
+					}
+					else {
+						thisclass.setImage(images.objects, 346, 328);
+					}
+				}, 5000);
+			}
+
+			// jump
+			if (this.imgIndex != 0) {
+				imgContent.load(this.imgIndex, renovate);
+			}
 		},
 	}, key);
 });
@@ -2233,10 +2247,11 @@ var RightTopPipeMap02 = RightTopPipe.extend({}, 'pipe_top_right_02');
 var LeftTopPipeMap02 = LeftTopPipe.extend({}, 'pipe_top_left_02');
 
 var imgContent = {
-	load: function (id) {
+	load: function (id, renovate = null) {
 		$("#fade").modal({
 			fadeDuration: 200,
-			sound: btnSound.hasClass('sound-on') ? groundSound : null
+			actionOpen: function () { return OpenPopupAction() },
+			actionClose: function () { return ClosePopupAction(renovate) }
 		});
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 		$('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
@@ -2247,7 +2262,8 @@ var imgContent = {
 	loadVideo: function () {
 		$("#fade").modal({
 			fadeDuration: 500,
-			sound: btnSound.hasClass('sound-on') ? groundSound : null
+			actionOpen: function () { return OpenPopupAction() },
+			actionClose: function () { return ClosePopupAction() }
 		});
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 		$('#imgContent').html(`<video width="100%" height="100%" controls>
@@ -2302,7 +2318,7 @@ function ChangeStageFromPipe(stage) {
 		if (height == 0) {
 			map.reset();
 			map = new Level('world');
-			map.load(definedLevels[stage]);
+			map.load(definedLevels[stage.mapNumber]);
 			map.start();
 		}
 
@@ -2311,6 +2327,27 @@ function ChangeStageFromPipe(stage) {
 		if (height == 80) {
 			clearInterval(interval);
 			keys.bind();
+
+			imgContent.load(stage.mapSummaryIndex)
 		}
 	}, 10);
+}
+
+function OpenPopupAction() {
+	var sound = btnSound.hasClass('sound-on') ? groundSound : null;
+	if (sound) {
+		sound.pause();
+	}
+}
+
+function ClosePopupAction(renovate) {
+	var sound = btnSound.hasClass('sound-on') ? groundSound : null;
+	if (sound) {
+		sound.play();
+	}
+
+	if (renovate)
+	{
+		renovate();
+	}
 }
