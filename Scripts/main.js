@@ -2254,16 +2254,23 @@ var LeftTopPipeMap02 = LeftTopPipe.extend({}, 'pipe_top_left_02');
 
 var imgContent = {
 	load: function (id, renovate = null) {
+		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
+
+		$('#imgContent').html(`<iframe style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
+			src="https://www.canva.com/design/DAF45PufdnM/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
+		</iframe>`).width('100%').height('800px')
+
+		// $('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
+		// 	src="https://www.canva.com/design/DAF45_spNv0/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
+		// </iframe>`).width('100%').height('800px')
+
+		//$('#imgContent').attr('src', "Images/1.png").width('100%').height('100%')
+
 		$("#fade").modal({
 			fadeDuration: 200,
 			actionOpen: function () { return OpenPopupAction() },
 			actionClose: function () { return ClosePopupAction(renovate) }
 		});
-		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
-		$('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
-			src="https://www.canva.com/design/DAF45PufdnM/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
-		</iframe>`).width('100%').height('800px')
-		//$('#imgContent').attr('src', "Images/1.png").width('100%').height('100%')
 	},
 	loadVideo: function () {
 		$("#fade").modal({
@@ -2317,6 +2324,7 @@ btnSound.on('click', function () {
 });
 
 function ChangeStageFromPipe(stage) {
+	PlaySound('Sound/smb3_airship_clear.wav', false)
 	keys.unbind();
 	keys.down = false;
 	let height = -80;
@@ -2334,9 +2342,9 @@ function ChangeStageFromPipe(stage) {
 			clearInterval(interval);
 			keys.bind();
 
-			imgContent.load(stage.mapSummaryIndex)
+			// imgContent.load(stage.mapSummaryIndex)
 		}
-	}, 10);
+	}, 25);
 }
 
 function OpenPopupAction() {
