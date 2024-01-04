@@ -200,7 +200,7 @@ var definedLevels = [
 		width: 252,
 		height: 15,
 		id: 0,
-		background: 1,
+		background: 3,
 		data:
 			[
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
@@ -533,7 +533,7 @@ var definedLevels = [
 		width: 252,
 		height: 15,
 		id: 0,
-		background: 3,
+		background: 6,
 		data:
 			[
 				['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
