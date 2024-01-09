@@ -10,19 +10,19 @@ var map;
 var mario_real;
 
 var gumpaList = {
-	'ballmonster_cts': 26,
+	'ballmonster_cts': 32,
 	'ballmonster_fps': 11,
-	'ballmonster_ai': 15,
-	'multiple_coinbox_ai_07': 19,
+	'ballmonster_ai_01': 19,
+	'ballmonster_ai_02': 23,
 };
 
 var multipleCoinBoxList = {
 	'multiple_coinbox_summary_00': 4,
-	'multiple_coinbox_cts_00': 20,
-	'multiple_coinbox_cts_01': 21, // 22
-	'multiple_coinbox_cts_02': 23,
-	'multiple_coinbox_cts_03': 24,
-	'multiple_coinbox_cts_04': 25,
+	'multiple_coinbox_cts_00': 24,
+	'multiple_coinbox_cts_01': 25, // 26, 27
+	'multiple_coinbox_cts_02': 28,
+	'multiple_coinbox_cts_03': 29, // 30
+	'multiple_coinbox_cts_04': 31,
 	'multiple_coinbox_fps_00': 5,
 	'multiple_coinbox_fps_01': 6,
 	'multiple_coinbox_fps_02': 7,
@@ -32,16 +32,17 @@ var multipleCoinBoxList = {
 	// 'multiple_coinbox_fps_06': 19,
 	'multiple_coinbox_ai_00': 12,
 	'multiple_coinbox_ai_01': 13,
-	'multiple_coinbox_ai_02': 14,
-	'multiple_coinbox_ai_03': 16,
-	'multiple_coinbox_ai_04': 17,
-	'multiple_coinbox_ai_05': 18,
+	'multiple_coinbox_ai_02': 14, // 15, 16, 17
+	'multiple_coinbox_ai_03': 18,
+	'multiple_coinbox_ai_04': 20,
+	'multiple_coinbox_ai_05': 21,
+	'multiple_coinbox_ai_06': 22,
 	// 'multiple_coinbox_ai_06': 26,
 };
 
 var retro = 3;
-var guidline = 36;
-var nextPlan = 27;
+var guidline = 42;
+var nextPlan = 33;
 var mapIndex = {
 	map01: {
 		mapNumber: 2,
@@ -2257,7 +2258,7 @@ var imgContent = {
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 
 		$('#imgContent').html(`<iframe style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
-			src="https://www.canva.com/design/DAF4-0WpXXE/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
+			src="https://www.canva.com/design/DAF45Am2EqA/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
 		</iframe>`).width('100%').height('800px')
 
 		// $('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
