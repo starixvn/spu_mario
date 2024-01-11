@@ -2259,7 +2259,7 @@ var imgContent = {
 
 		$('#imgContent').html(`<iframe style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
 			src="https://www.canva.com/design/DAF5i_gP9vM/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
-		</iframe>`).width('100%').height('800px')
+		</iframe>`).width('100%').height('915px')
 
 		// $('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
 		// 	src="https://www.canva.com/design/DAF45_spNv0/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
@@ -2282,7 +2282,7 @@ var imgContent = {
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 		$('#imgContent').html(`<video width="100%" height="100%" controls>
 			<source src="Video/trailer-yem-2023.mp4.mov" type="video/mp4">
-		</video>`).width('100%').height('800px');
+		</video>`).width('100%').height('915px');
 	}
 };
 
