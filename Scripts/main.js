@@ -2325,7 +2325,9 @@ btnSound.on('click', function () {
 });
 
 function ChangeStageFromPipe(stage) {
-	PlaySound('Sound/smb3_airship_clear.wav', false)
+	SoundGroundPause();
+	PlaySound('Sound/smb3_airship_clear.wav', false);
+
 	keys.unbind();
 	keys.down = false;
 	let height = -80;
@@ -2343,25 +2345,34 @@ function ChangeStageFromPipe(stage) {
 			clearInterval(interval);
 			keys.bind();
 
+			SoundGroundResume();
 			// imgContent.load(stage.mapSummaryIndex)
 		}
 	}, 25);
 }
 
 function OpenPopupAction() {
-	var sound = btnSound.hasClass('sound-on') ? groundSound : null;
-	if (sound) {
-		sound.pause();
-	}
+	SoundGroundPause();
 }
 
 function ClosePopupAction(renovate) {
+	SoundGroundResume();
+
+	if (renovate) {
+		renovate();
+	}
+}
+
+function SoundGroundResume() {
 	var sound = btnSound.hasClass('sound-on') ? groundSound : null;
 	if (sound) {
 		sound.play();
 	}
+}
 
-	if (renovate) {
-		renovate();
+function SoundGroundPause() {
+	var sound = btnSound.hasClass('sound-on') ? groundSound : null;
+	if (sound) {
+		sound.pause();
 	}
 }
