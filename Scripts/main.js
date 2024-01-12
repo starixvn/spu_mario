@@ -10,39 +10,39 @@ var map;
 var mario_real;
 
 var gumpaList = {
-	'ballmonster_cts': 28,
-	'ballmonster_fps': 11,
-	'ballmonster_ai_01': 16,
-	'ballmonster_ai_02': 20,
+	'ballmonster_cts': 27,
+	'ballmonster_fps': 10,
+	'ballmonster_ai_01': 15,
+	'ballmonster_ai_02': 19,
 };
 
 var multipleCoinBoxList = {
 	'multiple_coinbox_summary_00': 3,
-	'multiple_coinbox_cts_00': 21,
-	'multiple_coinbox_cts_01': 22, // 23
-	'multiple_coinbox_cts_02': 24,
-	'multiple_coinbox_cts_03': 25,
-	'multiple_coinbox_cts_04': 26,
+	'multiple_coinbox_cts_00': 20,
+	'multiple_coinbox_cts_01': 21, // 23
+	'multiple_coinbox_cts_02': 23,
+	'multiple_coinbox_cts_03': 24,
+	'multiple_coinbox_cts_04': 25,
 	'multiple_coinbox_fps_00': 4,
 	'multiple_coinbox_fps_01': 5,
 	'multiple_coinbox_fps_02': 6,
-	'multiple_coinbox_fps_03': 7, // 8 9 10
+	'multiple_coinbox_fps_03': 7, // 8 9
 	// 'multiple_coinbox_fps_04': 17,
 	// 'multiple_coinbox_fps_05': 18,
 	// 'multiple_coinbox_fps_06': 19,
-	'multiple_coinbox_ai_00': 12,
-	'multiple_coinbox_ai_01': 13,
-	'multiple_coinbox_ai_02': 14,
-	'multiple_coinbox_ai_03': 15,
-	'multiple_coinbox_ai_04': 17,
-	'multiple_coinbox_ai_05': 18,
-	'multiple_coinbox_ai_06': 19,
+	'multiple_coinbox_ai_00': 11,
+	'multiple_coinbox_ai_01': 12,
+	'multiple_coinbox_ai_02': 13,
+	'multiple_coinbox_ai_03': 14,
+	'multiple_coinbox_ai_04': 16,
+	'multiple_coinbox_ai_05': 17,
+	'multiple_coinbox_ai_06': 18,
 	// 'multiple_coinbox_ai_06': 26,
 };
 
 var retro = 3;
-var guidline = 34;
-var nextPlan = 29;
+var guidline = 33;
+var nextPlan = 28;
 var mapIndex = {
 	map01: {
 		mapNumber: 2,
@@ -2258,7 +2258,7 @@ var imgContent = {
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 
 		$('#imgContent').html(`<iframe style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
-			src="https://www.canva.com/design/DAF5olTBBck/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
+			src="https://www.canva.com/design/DAF5pyb_cW8/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
 		</iframe>`).width('100%').height('915px')
 
 		// $('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
