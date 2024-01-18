@@ -10,7 +10,7 @@ var map;
 var mario_real;
 
 var gumpaList = {
-	'ballmonster_cts': 27,
+	'ballmonster_cts': 28,
 	'ballmonster_fps': 10,
 	'ballmonster_ai_01': 15,
 	'ballmonster_ai_02': 19,
@@ -41,8 +41,8 @@ var multipleCoinBoxList = {
 };
 
 var retro = 3;
-var guidline = 33;
-var nextPlan = 28;
+var guidline = 34;
+var nextPlan = 29;
 var mapIndex = {
 	map01: {
 		mapNumber: 2,
@@ -2258,7 +2258,7 @@ var imgContent = {
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 
 		$('#imgContent').html(`<iframe style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
-			src="https://www.canva.com/design/DAF57FtrnvU/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
+			src="https://www.canva.com/design/DAF6MttUTSk/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
 		</iframe>`).width('100%').height('915px')
 
 		// $('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
