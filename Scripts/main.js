@@ -2258,7 +2258,7 @@ var imgContent = {
 		// $('#imgContent').attr('src', "Images/"+ id +".png").width('100%').height('100%')
 
 		$('#imgContent').html(`<iframe style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
-			src="https://www.canva.com/design/DAF6MttUTSk/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
+			src="https://www.canva.com/design/DAF6SUYECnw/view?embed#${id}" allowfullscreen="allowfullscreen" allow="fullscreen">
 		</iframe>`).width('100%').height('915px')
 
 		// $('#imgContent').html(`<iframe loading="lazy" style="width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
